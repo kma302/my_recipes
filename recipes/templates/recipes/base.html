@@ -1,0 +1,31 @@
+<!-- recipes/templates/recipes/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Every Last Bite</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+<br>
+<br>
+
+<div class="container">
+<div class="card" >
+    <img src="/media/recipe_images/elb.svg"  alt="Site Logo" width="100%">
+    <div class="card-body">
+        <p>
+            <a href="{% url 'index' %}">
+                Home</a> -
+            <a href="{% url 'recipe_list' %}">
+                Recipe List</a> -
+        </p>
+    </div>
+</div>
+<body style="background-color:#5670b6";>
+<br>
+</body>
+</div>
+
+{% block content %}
+{% endblock content %}

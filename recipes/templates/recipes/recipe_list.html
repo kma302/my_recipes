@@ -1,0 +1,33 @@
+<!-- recipes/templates/recipes/recipe_list.html -->
+
+{% extends 'recipes/base.html' %}
+{% load cropping %}
+%{ load thumbnails $}
+
+{% block content %}
+<div class="container">
+    <h2>Recipes</h2>
+    <div class="row">
+    {% for recipe in recipes %}
+        <div class="col-md-4">
+            <div class="card mb-5">
+                {% if recipe.image %}
+                    <img src="{% cropped_thumbnail recipe "cropping" scale=1.0 %}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                    <h6 class="card-subtitle">{{ recipe.recipe_by }}</h6>
+                    <hr>
+                    <p class="card-text">{{ recipe.description }}</p>
+                    <a href="{% url 'view_recipe' recipe.pk %}"
+                    class="btn btn-primary">
+                    Recipe Details</a>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
